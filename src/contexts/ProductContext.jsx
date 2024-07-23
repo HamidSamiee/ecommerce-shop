@@ -1,8 +1,8 @@
-import { data } from "autoprefixer";
-import { createContext, useContext, useEffect, useState } from "react";
+
+import { createContext, useEffect, useState } from "react";
 // import { getProducts } from "../services/productServices";
 
-const ProductsContext=createContext()
+export const ProductsContext=createContext()
 
 const ProductProvider = (Props) => {
 
@@ -27,6 +27,3 @@ const ProductProvider = (Props) => {
 
 export default ProductProvider;
 
-export function useProducts(){
-  return useContext(ProductsContext)
-}
