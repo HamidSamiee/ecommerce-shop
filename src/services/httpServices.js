@@ -1,7 +1,7 @@
 
 
 import axios from "axios";
-const baseURL='https://fakestoreapi.com/';
+const baseURL='http://localhost:8000/';
 
 const app = axios.create({
     baseURL: baseURL,

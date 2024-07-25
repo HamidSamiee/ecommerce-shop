@@ -1,13 +1,16 @@
-import { IoMdAdd, IoMdRemove } from "react-icons/io";
+import { IoMdAdd, IoMdRemove, IoMdTrash } from "react-icons/io";
 import { IoClose } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import { toPersianDigitsWithComma } from "../utils/toPersianDigits";
+// import { toPersianDigitsWithComma } from "../utils/toPersianDigits";
+import useCart from "../hooks/useCart";
 
 
 const CartItem = (Props) => {
 
   const {item}=Props;
   const {id,title,image,price,amount}=item;
+  const {addCountproducts,removeFromCart,removeCountproducts}=useCart();
+
 
   return <section className="flex px-4 py-1 lg:px-6 ">
 
@@ -25,28 +28,30 @@ const CartItem = (Props) => {
                 {title}
              </h4>
            </Link>
-           <button className="">
+           <button onClick={()=>removeFromCart(id)}  className="">
               <IoClose className=" text-gray-400 hover:text-rose-400" />
            </button>
         </div>
         <div className="w-full flex items-center justify-between gap-x-5">
           <div className="flex-1 flex  max-w-[100px] items-center h-full text-primary py-1 border border-gray-300">
-            <button className="flex-1 h-full flex justify-center items-center">
-                <IoMdRemove />
+            <button onClick={()=>removeCountproducts(id)}  className="flex-1 h-full flex justify-center items-center">
+                {
+                  amount === 1 ? <IoMdTrash className="text-rose-400" /> : <IoMdRemove />
+                }
             </button>
             <div className="h-full flex justify-center items-center px-2">
               {amount}
             </div>
-            <button className="flex-1 h-full flex justify-center items-center">
+            <button onClick={()=>addCountproducts(id)} className="flex-1 h-full flex justify-center items-center">
                 <IoMdAdd />
             </button>
           </div>
           <div className="flex-1 flex items-center justify-between">
               <div className="text-gray-500">
-                  $ {toPersianDigitsWithComma(price)}
+                  $ {price}
               </div>
               <div className="text-primary">
-                $ {toPersianDigitsWithComma(price * amount)}
+                $ {price * amount}
               </div>
           </div>
         </div>

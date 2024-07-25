@@ -7,7 +7,7 @@ const Layout = (Props) => {
     const {children}= Props;
 
   return (
-    <div className="container xl:max-w-screen-xl">
+    <div className="container">
         <Header />
         <Sidebar />
               {
