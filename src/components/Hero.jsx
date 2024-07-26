@@ -22,7 +22,7 @@ const Hero = () => {
             </Link>
         </div>
         {/* image */}
-        <div className="hidden lg:block">
+        <div className="hidden self-start lg:block">
             <img src={heroImage} alt="hero" className="" />
         </div>
     </div>

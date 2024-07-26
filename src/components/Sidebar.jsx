@@ -3,6 +3,7 @@ import useSidebar from '../hooks/useSidebar'
 import useCart from '../hooks/useCart';
 // import {toPersianDigits} from '../utils/toPersianDigits'
 import CartItem from './CartItem'
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
 
@@ -28,8 +29,8 @@ const Sidebar = () => {
           }
           
         </div>
-        <div className=" bg-white   px-4   ">
-              <div className="flex items-center justify-between w-full py-6 border-t-4">
+        <div className=" bg-white space-y-2  px-4 py-6 ">
+              <div className="flex items-center justify-between w-full pt-2 border-t-4">
                   <div className="">
                     <span className="text-primary font-semibold"> total : $ {total}</span>
                   </div>
@@ -37,6 +38,12 @@ const Sidebar = () => {
                     <IoMdTrash className='text-rose-500 w-4 h-4 md:w-6 md:h-6' />
                   </button>
               </div>
+              <Link className="w-full text-primary bg-gray-200 font-medium p-4 flex items-center justify-center ">
+                      view cart
+              </Link>
+              <Link className="w-full text-white bg-primary font-medium p-4 flex items-center justify-center ">
+                       checkout
+              </Link>
         </div>
     </div>
   </section>
